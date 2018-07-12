@@ -1,10 +1,13 @@
 # EB Docker Deploy
 
 ## Requirments
+- Python(3.6)
+- pipenv
+- Django(2.x)
 
 ### Secrets
 
-#### '.secrets/base.json'
+`.secrets/base.json`
 
 ```json
 {
