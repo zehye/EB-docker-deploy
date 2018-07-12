@@ -15,25 +15,17 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROOT_DIR = os.path.dirname(BASE_DIR)
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
-
 SECRET_DIR = os.path.join(ROOT_DIR, '.secrets')
-# f = open(os.path.join(SECRET_DIR, 'base.json'))
-# json_string = f.read()
-# json_object = json.loads(json_string)
-#
-# SECRET_KEY = json_object['SECRET_KEY']
 
 secrets = json.loads(open(os.path.join(SECRET_DIR, 'base.json')).read())
 SECRET_KEY = secrets['SECRET_KEY']
 
-
-
 # Application definition
+AUTH_USER_MODEL = 'members.User'
 
 INSTALLED_APPS = [
+    'members',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
