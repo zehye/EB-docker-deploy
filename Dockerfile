@@ -23,12 +23,16 @@ RUN             cp -f   /srv/project/.config/${BUILD_MODE}/nginx.conf \
                         /etc/nginx/nginx.conf && \
                 cp -f   /srv/project/.config/${BUILD_MODE}/nginx_app.conf \
                         /etc/nginx/sites-available/ && \
-                rm -rf  /etc/nginx/sites-enabled/* && \
+#                rm -rf  /etc/nginx/sites-enabled/* && \
                 ln -sf  /etc/nginx/sites-available/nginx_app.conf \
                         /etc/nginx/sites-enabled/
 
 # supervisor설정 복사
 RUN             cp -f   /srv/project/.config/${BUILD_MODE}/supervisor.conf \
                         /etc/supervisor/conf.d/
+
+# 7000번 포트 open
+EXPOSE          7000
+
 # supervisord 실행
 CMD             supervisord -n
