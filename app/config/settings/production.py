@@ -1,12 +1,15 @@
 from .base import *
 
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+]
 
 
-WSGI_APPLICATION = 'config.wsgi.dev.application'
+WSGI_APPLICATION = 'config.wsgi.production.application'
+
 
 DATABASES = {
     'default': {
