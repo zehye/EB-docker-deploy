@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # requirements.txt만들기
-pipenv lock --requirements
+pipenv lock --requirements > requirements.txt
 
 # .secrets와 requirements를 staging area에 추가
 git add -f .secrets/ requirements.txt

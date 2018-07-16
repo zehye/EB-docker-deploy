@@ -4,7 +4,7 @@ from .base import *
 
 
 secrets = json.load(open(os.path.join(SECRETS_DIR, 'production.json')))
-
+ALLOWED_HOSTS = secrets['ALLOWED_HOSTS']
 
 # RUNSERVER = len(sys.argv) > 1 and sys.argv[1] == 'runserver'
 RUNSERVER = 'runserver' in sys.argv
