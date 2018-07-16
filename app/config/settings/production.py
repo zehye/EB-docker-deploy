@@ -6,7 +6,8 @@ from .base import *
 secrets = json.load(open(os.path.join(SECRETS_DIR, 'production.json')))
 
 
-RUNSERVER = sys.argv[1] == 'runserver'
+# RUNSERVER = len(sys.argv) > 1 and sys.argv[1] == 'runserver'
+RUNSERVER = 'runserver' in sys.argv
 DEBUG = False
 
 if RUNSERVER:
