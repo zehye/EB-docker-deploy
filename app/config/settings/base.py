@@ -15,10 +15,23 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ROOT_DIR = os.path.dirname(BASE_DIR)
-SECRET_DIR = os.path.join(ROOT_DIR, '.secrets')
+SECRETS_DIR = os.path.join(ROOT_DIR, '.secrets')
+secrets = json.loads(open(os.path.join(SECRETS_DIR, 'base.json')).read())
 
-secrets = json.loads(open(os.path.join(SECRET_DIR, 'base.json')).read())
 SECRET_KEY = secrets['SECRET_KEY']
+
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(ROOT_DIR, '.static')
+
+MEDIA_ROOT = os.path.join(ROOT_DIR, '.media')
+MEDIA_URL = '/media/'
+
+AWS_ACCESS_KEY_ID = secrets['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = secrets['AWS_SECRET_ACCESS_KEY']
+AWS_DEFAULT_ACL = secrets['AWS_DEFAULT_ACL']
+AWS_S3_REGION_NAME = secrets['AWS_S3_REGION_NAME']
+AWS_S3_SIGNATURE_VERSION = secrets['AWS_S3_SIGNATURE_VERSION']
 
 # Application definition
 AUTH_USER_MODEL = 'members.User'

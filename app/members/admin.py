@@ -5,6 +5,20 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 
 class UserAdmin(BaseUserAdmin):
-    pass
+    fieldsets = (
+        (None, {
+            'fields': (
+                'username',
+                'password',
+            ),
+        }),
+        ('개인정보', {
+            'fields': (
+                'img_profile',
+            )
+        }
+         ),
+    )
+
 
 admin.site.register(User, UserAdmin)
